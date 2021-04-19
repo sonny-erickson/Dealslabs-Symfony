@@ -1,0 +1,60 @@
+{% for deal in deals %}
+
+    {% set dateNow = "now"|date('d-m-Y') %}
+    {% set dateExpiration = deal.dateExpiration|date('d-m-Y') %}
+    {% set difference = date(dateNow).diff(date(dateExpiration)) %}
+    {% set leftDays = difference.days %}
+    <div class="col-md-10 mb-2 deal {% if difference.invert == 1 %} disabledEl{% endif %}" data-position="{{ position }}" data-id_deal="{{ deal.id }}">
+        <div class="row p-2 bg-white border bg-color rounded mb-2">
+            <div class="img-fluid-container col-md-3 mt-1">
+                <img class="img-fluid img-responsive rounded product-image" alt="deal image" src="{{ deal.image }}"></div>
+            <div class="col-md-6 mt-1 p-2">
+                {% if difference.invert == 0 %}
+                    <div class="counter d-flex flex-row mb-3{% if app.user %}{% if userService.hasBeenVoted(app.user, deal) %} disabledButton{% endif %}{% endif %}">
+                        <button class="btn increment down" id="minus"><i class="fas fa-minus text-primary"></i></button>
+                        <strong><span class="count {% if deal.sumVotes > 0 %} text-danger {% endif %}{% if deal.sumVotes < 0 %} text-primary {% endif %}">{{ deal.sumVotes }}</span></strong>
+                        <button class="btn increment up" id="plus"><i class="fas fa-plus text-danger"></i></button>
+                    </div>
+                {% endif %}
+                <div class="header-deal d-flex flex-column">
+                    {% if difference.invert == 1 %}
+                        <div class="mr-2 text-danger"><s><i class="fas fa-hourglass-half mr-2"></i> {{ 'global.expired' |trans }} {{ deal.dateExpiration | date('d-m-Y')}} </s></div>
+                    {% elseif leftDays > 0 and  leftDays <= 3 %}
+                        <div class="d-flex justify-content-between">
+                            <div class="mr-2 text-danger"><i class="fas fa-hourglass-half mr-2"></i> {{ 'global.expireIn' |trans }} {{ deal.dateExpiration | date('d-m-Y')}} (dans {{ leftDays }} jours)</div>
+                            <i class="fas fa-fire mr-2 text-danger hot"></i>
+                        </div>
+                    {% elseif leftDays == 0 %}
+                        <div class="d-flex justify-content-between">
+                            <div class="mr-2 text-danger"><i class="fas fa-hourglass-half mr-2"></i> {{ 'global.expired' |trans }} {{ deal.dateExpiration | date('d-m-Y')}} (aujourd'hui)</div>
+                            <i class="fas fa-fire mr-2 text-danger hot"></i>
+                        </div>
+                    {% else %}
+                        <div class="mr-2"><i class="fas fa-hourglass-half mr-2"></i> {{ 'global.expireIn' |trans }} {{ deal.dateExpiration | date('d-m-Y')}} (dans {{ leftDays }} jours)</div>
+                    {% endif %}
+                    <div class="mr-2"><i class="fas fa-street-view mr-2"></i><span class="underline">Spot</span> :  {{ deal.localisation }}</div>
+                    <span class="d-flex justify-content-end"><span class="underline">{{ 'categorie.libelle' |trans }} </span> :  {{ deal.categorie.nom }}</span>
+                </div>
+                <h5 class="mb-5">{{ deal.titre }}</h5>
+                <div class="d-flex flex-row justify-content-between card-footer mt-3">
+                    <small data-id="{{deal.id}}"  data-toggle="popover" title="{{ deal.user.username }}" data-bs-content="Email: {{ deal.user.email }}"><i class="fas fa-user-circle lr-3 text-muted mr-2"></i>{{ deal.user.username }}</small>
+                    <small class="text-muted"><i class="fas fa-calendar-minus mr-2 "></i>{{ 'global.upload.date' |trans }} {{ deal.datePublication | date('d-m-Y')}}</small>
+                </div>
+            </div>
+            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                <div class="price d-flex flex-row align-items-center">
+                    <h4 class="mr-1">{{ deal.prixPromo }} €</h4><s class="strike-text">{{ deal.prixOrigine }} €</s>
+                </div>
+                <h6 class="text-success"><i class="fas fa-truck mr-2"></i> {{ deal.livraison }}€</h6>
+                <div class="d-flex flex-column mt-4">
+                    <button type="button" class="modalCall btn btn-primary" data-bs-toggle="modal" data-id="{{deal.id}}" data-bs-target="#containDeal">{{ 'global.show.modal' |trans }}<i class="fas fa-info-circle ml-2"></i></button>
+                    <button class="btn btn-outline-primary btn-sm mt-2 " href="{{ deal.url }}">{{ 'global.show.deal.url' |trans }}<i class="fas fa-bullseye ml-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% set position = position + 1 %}
+{% endfor %}
+
+
+

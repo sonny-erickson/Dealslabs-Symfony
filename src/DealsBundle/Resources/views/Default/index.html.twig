@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <nav class="navbar navbar-light bg-dark d-flex justify-content-center">
+{#        Exemple utilisation de service avec les catégories#}
+{#        {% set categories = categorieService.getCategories() %}#}
+        <div class="search-container d-flex flex-row justify-content-center row pt-2">
+            <div class="col-sm">{{ form_row(form.categorie) }}</div>
+            <div class="col-sm"> {{ form_row(form.q) }}</div>
+            <div class="button col-sm">{{ form_row(form.submit) }}</div>
+        </div>
+    </nav>
+    {{ form_end(form) }}
+    {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-success" role="alert">
+            {{ msg }}
+        </div>
+    {% endfor %}
+    {% for msg in app.session.flashBag.get('error') %}
+        <div class="alert alert-danger" role="alert">
+            {{ msg }}
+        </div>
+    {% endfor %}
+    <div id="error"></div>
+    <div class="main mt-5 mb-5">
+        <div class="dealsContainer d-flex justify-content-center row" id="Deals" data-type_search="{{ typeSearch }}">
+            {% if deals %}
+                {% include "DealsBundle:Default:dealsList.html.twig" with {position: 0} %}
+            {% else %}
+                <div class="text-center" id="stopScrollNoResults">
+                    <h3>Oupss !!</h3>
+                    <img class="noResults" alt="noResults" src="/images/noResults.jpg">
+                </div>
+            {% endif %}
+
+        </div>
+        <div class="d-none text-center" id="stopScrollNbDeals">
+            <img class="noResults" alt="noResults" src="/images/noResults.jpg">
+        </div>
+        {# <div class="navigation d-flex justify-content-center mt-4">#}
+        {# {{ knp_pagination_render(deals) }}#}
+        {# </div>#}
+    </div>
+    <div class="modal fade" id="containDeal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ 'global.show.modal' |trans }}</h5>
+{#                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+                    <button type="button" class="close"  data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   <img id="Loading" src="/images/loading.gif" alt="loading gif">
+                    <div id="Content"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-color" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loader" class="spinner-grow text-danger d-none" role="status">
+        <img src="/images/loading.gif" alt="loading gif">
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/js/index-jquery.js"></script>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        img{
+            width: 100%;
+            height:auto!important;
+        }
+
+    </style>
+{% endblock %}

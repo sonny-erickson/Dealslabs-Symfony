@@ -1,0 +1,44 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+
+services:
+    #service_name:
+    #    class: AppBundle\Directory\ClassName
+    #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+    form.translate:
+        class: DealsBundle\Form\DealType
+        arguments: [ "@translator" ]
+        tags:
+            - { name: form.type }
+
+    myDealabs.categorieService:
+        class: DealsBundle\Services\CategorieService
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    myDealabs.utilesService:
+        class: DealsBundle\Services\UtilesService
+        arguments:
+
+    myDealabs.deleteService:
+        class: DealsBundle\Services\DeleteService
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    myDealabs.fileService:
+        class: DealsBundle\Services\FileService
+        arguments: ["@kernel"]
+
+    myDealabs.dealService:
+        class: DealsBundle\Services\DealService
+        arguments: ["@kernel","@myDealabs.utilesService","@doctrine.orm.entity_manager","@myDealabs.fileService","@myDealabs.voteService"]
+
+    myDealabs.userService:
+        class: DealsBundle\Services\UserService
+        arguments: []
+
+    myDealabs.voteService:
+        class: DealsBundle\Services\VoteService
+        arguments: ["@doctrine.orm.entity_manager"]
+
+

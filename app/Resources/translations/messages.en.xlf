@@ -1,0 +1,188 @@
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+        <!--             Global              -->
+            <trans-unit id="categorie.libelle">
+                <source>categorie.libelle</source>
+                <target>Category</target>
+            </trans-unit>
+            <trans-unit id="categorie.deals">
+                <source>categorie.deals</source>
+                <target>deal|deals</target>
+            </trans-unit>
+            <trans-unit id="global.show.modal">
+                <source>global.show.modal</source>
+                <target>More infos</target>
+            </trans-unit>
+            <trans-unit id="global.show.deal.url">
+                <source>global.show.deal.url</source>
+                <target>See the website</target>
+            </trans-unit>
+            <trans-unit id="global.expired">
+                <source>global.expired</source>
+                <target>Expired at</target>
+            </trans-unit>
+            <trans-unit id="global.expireIn">
+                <source>global.expireIn</source>
+                <target>Expire at</target>
+            </trans-unit>
+            <trans-unit id="global.upload.date">
+                <source>global.upload.date</source>
+                <target>Uploaded on</target>
+            </trans-unit>
+            <trans-unit id="global.delivered.price">
+                <source>global.delivered.price</source>
+                <target>Delivery</target>
+            </trans-unit>
+            <trans-unit id="global.deal.link.btn">
+                <source>global.deal.link.btn</source>
+                <target>Deal's link</target>
+            </trans-unit>
+            <trans-unit id="global.delete.btn">
+                <source>global.delete.btn</source>
+                <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="form.submit">
+                <source>form.search.submit</source>
+                <target>Submit</target>
+            </trans-unit>
+
+        <!--             Message success/error              -->
+            <trans-unit id="deal.search.impossible">
+                <source>deal.search.impossible</source>
+                <target>Search is broken ...</target>
+            </trans-unit>
+            <trans-unit id="deal.scroll.impossible">
+                <source>deal.scroll.impossible</source>
+                <target>Scroll is broken ...</target>
+            </trans-unit>
+            <trans-unit id="deal.counter.unauthorized.user">
+                <source>deal.counter.unauthorized.user</source>
+                <target>You must be logged for vote</target>
+            </trans-unit>
+            <trans-unit id="deal.add">
+                <source>deal.add</source>
+                <target>Deal add !</target>
+            </trans-unit>
+            <trans-unit id="deal.profile.load">
+                <source>deal.profile.load</source>
+                <target>There was a problem loading your profile ... Please contact the admin</target>
+            </trans-unit>
+            <trans-unit id="deal.delete.success">
+                <source>deal.delete.success</source>
+                <target>Deal delete!</target>
+            </trans-unit>
+            <trans-unit id="deal.delete.error">
+                <source>deal.delete.error</source>
+                <target>Cannot delete your Deal at this time, please try again later</target>
+            </trans-unit>
+
+        <!--             Nav              -->
+            <trans-unit id="nav.link.news">
+                <source>nav.link.news</source>
+                <target>News</target>
+            </trans-unit>
+            <trans-unit id="nav.link.logOut">
+                <source>nav.link.logOut</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="nav.link.logIn">
+                <source>nav.link.logIn</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="nav.link.profil">
+                <source>nav.link.profil</source>
+                <target>Profil</target>
+            </trans-unit>
+            <trans-unit id="nav.link.post">
+                <source>nav.link.post</source>
+                <target>Post</target>
+            </trans-unit>
+
+        <!--             FORM              -->
+
+        <!--             Form-search              -->
+            <trans-unit id="search.form.label.search">
+                <source>search.form.label.search</source>
+                <target>Search</target>
+            </trans-unit>
+        <!--             Form-deal-add              -->
+            <trans-unit id="deal.form.label.url">
+                <source>deal.form.label.url</source>
+                <target>Url of the deal</target>
+            </trans-unit>
+            <trans-unit id="deal.form.placeholderUrl">
+                <source>deal.form.placeholderUrl</source>
+                <target>http:/www.example.com/superdeal</target>
+            </trans-unit>
+            <trans-unit id="deal.form.label.title">
+                <source>deal.form.label.title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="deal.form.placeholder.title">
+                <source>deal.form.placeholder.title</source>
+                <target>Give a short, descriptive title</target>
+            </trans-unit>
+            <trans-unit id="deal.form.label.priceOrigin">
+                <source>deal.form.label.priceOrigin</source>
+                <target>Original price</target>
+            </trans-unit>
+            <trans-unit id="deal.form.label.pricePromo">
+                <source>deal.form.label.pricePromo</source>
+                <target>Promotion price</target>
+            </trans-unit>
+            <trans-unit id="deal.form.label.description">
+                <source>deal.form.label.description</source>
+                <target>In lack of ideas? Present the product or the offer in your own words, explain why the offer is interesting in your opinion, describe how to get the price if there is a trick ... sites! Is your business in store? Don't forget to specify the city where it is located, and the available stock!</target>
+            </trans-unit>
+            <trans-unit id="deal.form.label.start.date">
+                <source>deal.form.label.start.date</source>
+                <target>Start date</target>
+            </trans-unit>
+            <trans-unit id="deal.form.label.date.expiration">
+                <source>deal.form.label.date.expiration</source>
+                <target>Expiration date</target>
+            </trans-unit>
+            <trans-unit id="deal.form.label.spot">
+                <source>deal.form.label.spot</source>
+                <target>Spot</target>
+            </trans-unit>
+
+        <!--             Profil              -->
+            <trans-unit id="profil.deals.lenght">
+                <source>profil.deals.lenght</source>
+                <target>Posted Deals</target>
+            </trans-unit>
+            <trans-unit id="profil.card.h6">
+                <source>profil.card.h6</source>
+                <target>Your deals</target>
+            </trans-unit>
+            <trans-unit id="profil.h2.management">
+                <source>profil.h2.management</source>
+                <target>Management of my deals</target>
+            </trans-unit>
+            <trans-unit id="profil.all.btn">
+                <source>profil.all.btn</source>
+                <target>All</target>
+            </trans-unit>
+            <trans-unit id="profil.active.btn">
+                <source>profil.active.btn</source>
+                <target>In progress</target>
+            </trans-unit>
+            <trans-unit id="profil.expired.btn">
+                <source>profil.expired.btn</source>
+                <target>Expired</target>
+            </trans-unit>
+
+        <!--             addForm (twig)              -->
+            <trans-unit id="addForm.h2">
+                <source>addForm.h2</source>
+                <target>Post a deal</target>
+            </trans-unit>
+            <trans-unit id="addForm.p.link.explication">
+                <source>addForm.p.link.explication</source>
+                <target>Please provide the link to the page where the community can get information, view the product and enjoy the deal!</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

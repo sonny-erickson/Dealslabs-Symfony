@@ -1,0 +1,41 @@
+    <div class="container mx-2">
+        <div class="d-flex justify-content-center row">
+            {% set dateNow = "now"|date('d-m-Y') %}
+            {% set dateExpiration = deal.dateExpiration|date('d-m-Y') %}
+            {% set difference = date(dateNow).diff(date(dateExpiration)) %}
+            {% set leftDays = difference.days %}
+            <div class="col-md-12 mb-2" >
+                <div class="mb-3"> <img src="{{ deal.image }}" alt="deal image" width="90%" height="95%"> </div>
+                <div class="row p-2 bg-white border rounded mb-2">
+                    <div class="col-md-12 mt-1">
+                        <div class="d-flex flex-column">
+                            <div class="mr-2"><i class="fas fa-street-view mr-2"></i>Spot : {{ deal.localisation }}</div>
+                            <span class="d-flex justify-content-end">{{ 'categorie.libelle' |trans }}: {{ deal.categorie.nom }}</span>
+                        </div>
+                        <h5 class="mb-4">{{ deal.titre }}</h5>
+                        <div class="d-flex flex-row justify-content-between card-footer mt-3">
+                            <small><i class="fas fa-user-circle lr-3 text-muted mr-2"></i>{{ deal.user.username }}</small>
+                        </div>
+                        <div class="align-items-center align-content-center mt-1">
+                            <div class="d-flex flex-row align-items-center">
+                                <h4 class="mr-1">{{ deal.prixPromo }} €</h4><s class="strike-text">{{ deal.prixOrigine }} €</s>
+                            </div>
+                            <h6 class="text-success"><i class="fas fa-truck mr-2"></i> {{ deal.livraison }}€</h6>
+                            <div class="d-flex flex-column mt-4">
+                                <a class="btn btn-outline-primary btn-sm mt-2 " href="{{  deal.url }}">{{ 'global.show.deal.url' |trans }}<i class="fas fa-bullseye ml-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column card-footer mt-3">
+            <small class="text-muted"><i class="fas fa-calendar-minus mr-2 "></i>{{ 'global.upload.date' |trans }} {{ deal.datePublication | date('d-m-Y')}}</small>
+            <div class="mr-2 text-danger"><i class="fas fa-hourglass-half mr-2"></i> {{ 'global.expired' |trans }}  {{ deal.dateExpiration | date('d-m-Y')}} dans {{ leftDays }} jours</div>
+        </div>
+        <div class="my-5">
+            <h3 class="border-bottom">Description :</h3>
+            <p class="pt-3">{{ deal.description }}</p>
+        </div>
+    </div>
+

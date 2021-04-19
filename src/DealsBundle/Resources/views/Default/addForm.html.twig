@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for msg in app.session.flashBag.get('error') %}
+        <div class="alert alert-danger" role="alert">
+            {{ msg }}
+        </div>
+    {% endfor %}
+    <div class="addForm-bg d-flex justify-content-center py-5">
+        <div class="card addFormContainer">
+            <div class="card-body">
+                <h2 class="card-title my-2">{{ 'addForm.h2' |trans }}</h2>
+                {{ form_start(form) }}
+                <div class="form p-2">
+                    <div class="form-group mb-2 border-bottom">
+                        {{ form_row(form.url) }}
+                        <p>
+                            {{ 'addForm.p.link.explication' |trans }}
+                        </p>
+                        {{ form_errors(form.url) }}
+                    </div>
+                    <div class="mb--2 border-bottom">
+                        <h2>Description</h2>
+                        <div class="d-flex flex-row justify-content-between">
+                            {{ form_row(form.prixPromo) }}
+                            {{ form_row(form.prixOrigine) }}
+                        </div>
+                        {{ form_row(form.livraison) }}
+                    </div>
+                    <div>
+                        {{ form_row(form.titre) }}
+                        {{ form_row(form.description) }}
+                        {{ form_row(form.image) }}
+                        {{ form_row(form.categorie) }}
+                    </div>
+                    <div class="jumbotron m-2">
+                        {{ form_row(form.dateDebut) }}
+                        {{ form_row(form.dateExpiration) }}
+                        {{ form_row(form.localisation) }}
+                        {{ form_row(form.isNational) }}
+                    </div>
+                    {{ form_row(form.submit) }}
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+
+    </style>
+{% endblock %}

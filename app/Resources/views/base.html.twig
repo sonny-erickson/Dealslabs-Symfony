@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}DealPasLabs{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/bootstrap-datepicker.min.css">
+        <link rel="stylesheet" href="/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+</head>
+<body>
+{% block navbar %}
+    {% include "DealsBundle:Partials:_navbar.html.twig" %}
+{% endblock %}
+{% block body %}{% endblock %}
+{% include "DealsBundle:Partials:_footer.html.twig" %}
+
+{% block javascripts %}
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/fontawesome.min.js" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/bootstrap-select.min.js"></script>
+{% endblock %}
+</body>
+</html>

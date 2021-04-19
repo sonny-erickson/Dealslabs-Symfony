@@ -1,0 +1,334 @@
+    html,body{
+        height: 100%;
+    }
+    .main{
+        max-width: 85%;
+        margin: auto;
+    }
+    #img_nav, .imgProfile{
+        height: auto;
+        width: 225px;
+    }
+    .btn-color{
+        background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
+        background: linear-gradient(to right, #ee5a6f, #f29263);
+        color: white;
+    }
+    .bg-color{
+        box-shadow: 4px 2px 5px #D6CFC7;
+    }
+    .nav-link:hover{
+        color: #ee5a6f!important;
+        font-weight: bolder;
+        border-bottom: 1px solid #ee5a6f;
+    }
+    .disabledButton {
+        pointer-events: none;
+        opacity: 0.4;
+    }
+    .noResults{
+        width: auto;
+        height: 800px!important;
+    }
+    #loader{
+        height: auto;
+        width: 225px;
+        margin:auto;
+    }
+    .popover{
+        background: rgba(242, 146, 99, 0.9);
+    }
+    #plus:hover {
+        background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
+        background: linear-gradient(to right, #ee5a6f, #f29263)
+    }
+    #minus:hover {
+        background-color: #0000F0;
+    }
+    .counter .count{
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        font-size: 25px;
+    }
+    .counter .count, #plus, #minus {
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+    .logConteneur{
+        background-image: url("/images/login.jpg");
+        background-size: 500px;
+        background-repeat: no-repeat;
+    }
+    .underline{
+        text-decoration: underline;
+        font-style: italic;
+    }
+    #dealsbundle_deal_q, #dealsbundle_deal_categorie{
+        min-width: 300px;
+    }
+/*#################################*/
+/*    Add Form */
+/*#################################*/
+    .addFormContainer{
+        /*background-image: url("/images/add.jpg");*/
+        background-size: 250px;
+        background-repeat: no-repeat;
+        background-position: top right;
+        width: 40%;
+    }
+    .addForm-bg{
+        background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
+    }
+    .jumbotron{
+    }
+    .card-body h2{
+        font-size:30px;
+    }
+    .form-group label{
+        font-weight: bold;
+    }
+    .form-group p{
+        font-size: 12px;
+        font-style: italic;
+        color: #4e555b;
+    }
+    #dealsbundle_deal_description{
+        height: 137px;
+    }
+    #dealsbundle_deal_image{
+        padding-left: 10px;
+    }
+
+/*#################################*/
+/*    Profile*/
+/*#################################*/
+
+    .bg-img-profil{
+        background-image: url("/images/profile.jpg");
+        background-size: 600px;
+        background-repeat: no-repeat;
+        background-position: top right;
+    }
+    .user-card-full {
+        overflow: hidden
+    }
+    .card {
+        border-radius: 5px;
+        -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+        box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+        border: none;
+        margin-bottom: 30px
+    }
+    .user-card-full .user-profile {
+        border-radius: 5px 0 0 5px
+    }
+    .opacity{
+        opacity: 0.9;
+    }
+    .bg-c-lite-green {
+        background: url("/images/bg-profil.png");
+    }
+    .img-radius {
+        border-radius: 5px
+    }
+    h6 {
+        font-size: 14px
+    }
+    .card .card-block p {
+        line-height: 25px
+    }
+    .card-block {
+        padding: 1.25rem
+    }
+    .b-b-default {
+        border-bottom: 1px solid #e0e0e0
+    }
+    .text-muted {
+        color: #919aa3 !important
+    }
+    .b-b-default {
+        border-bottom: 1px solid #e0e0e0
+    }
+    .f-w-600 {
+        font-weight: 600
+    }
+    .user-card-full .social-link li {
+        display: inline-block
+    }
+    .user-card-full .social-link li a {
+        font-size: 20px;
+        margin: 0 10px 0 0;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out
+    }
+/*#################################*/
+/*    Media Queries*    /
+/*#################################*/
+    @media screen and (max-width: 770px) {
+        .main {
+            max-width: 90% !important;
+        }
+        #dealsbundle_deal_q, #dealsbundle_deal_categorie{
+            width: 260px;
+            margin : auto;
+        }
+        #dealsbundle_deal .search-container{
+            flex-flow: column!important;
+        }
+       .search-container .button{
+            text-align: center;
+        }
+        .addFormContainer{
+            width: 100%;
+        }
+        #error{
+            font-size: 13px;
+        }
+        .img-fluid-container{
+            display: flex;
+            justify-content: center;
+        }
+       .img-fluid{
+           max-width: 250px;
+           margin: auto!important;
+           display: flex;
+       }
+       .counter{
+           padding-top: 20px;
+           display: flex;
+           justify-content: center;
+
+       }
+       .header-deal{
+           font-size: 13px;
+           text-align: center;
+           border-bottom: 1px solid #f29263;
+           background-color: rgba(242, 146, 99, 0.1);
+           margin-bottom: 20px;
+           padding: 15px;
+       }
+       .deal h5{
+           font-size: 17px;
+           margin-bottom: 20px!important;
+       }
+       .deal .price,.h6{
+           justify-content: center;
+       }
+       .deal .h6{
+           text-align: center;
+       }
+        .deal button{
+            width: 50%;
+            margin: auto;
+            font-size: 13px;
+        }
+        /*image no results*/
+        .noResults{
+            height: 440px!important;
+        }
+        /*********/
+        /*HEADER*/
+        /*********/
+        nav #img_nav{
+            width: 195px;
+        }
+        nav .navbar-toggler{
+            width: 46px;
+        }
+        nav .navbar-toggler-icon, .nav-link {
+            font-size: 13px;
+        }
+        .btn-toggle .btn{
+            font-size: 10px;
+        }
+        #dealsbundle_deal_submit{
+            width:  85px;
+            font-size: 13px;
+        }
+        #dealsbundle_deal_categorie,  #dealsbundle_deal_q{
+            height: 31px;
+            font-size: 12px;
+        }
+        /*********/
+        /*FOOTER*/
+        /*********/
+        .footer h2{
+            font-size: 32px;
+        }
+        .footer p{
+            font-size: 13px;
+        }
+        .footer button{
+            width:  106px;
+            font-size: 15px;
+        }
+        /*********/
+        /*PROFIL*/
+        /*********/
+        .page-content{
+            margin: 0!important;
+        }
+        .card-block{
+            padding: 0;
+        }
+        .card-block .b-b-default{
+            margin:0!important;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .bg-opacity{
+            height: 220px;
+        }
+        .main h2{
+            font-size: 22px;
+        }
+        .main .btn-group .btn{
+            font-size: 13px;
+        }
+        .profil-btn-contain a{
+            font-size: 12px;
+            width: 50%;
+            margin: auto
+        }
+        /*********/
+        /*ADD*/
+        /*********/
+        .card-body h2{
+            font-size:20px;
+        }
+        .card-body input, #dealsbundle_deal_description{
+            font-size: 12px;
+        }
+        .form-group label{
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .form-group p{
+            font-size: 12px;
+            font-style: italic;
+            color: #4e555b;
+        }
+        #dealsbundle_deal_description{
+            height: 137px;
+        }
+        #dealsbundle_deal_image{
+            padding-left: 10px;
+        }
+    }
+    @media screen and (max-width: 976px) {
+        .main {
+            max-width: 90% !important;
+        }
+    }
+    /*Media Queries Profile*/
+    @media only screen and (min-width: 1400px) {
+        p {
+            font-size: 14px
+        }
+    }
+
+
