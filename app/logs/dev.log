@@ -1,0 +1,1 @@
+[2021-04-20 10:13:44] php.DEBUG: fsockopen(): unable to connect to 127.0.0.1:8000 (Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée. ) {"type":2,"file":"C:\\xampp\\htdocs\\deals\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle\\Command\\ServerCommand.php","line":61,"level":28928} []
