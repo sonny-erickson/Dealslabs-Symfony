@@ -51,7 +51,6 @@
         ]
     },
     "config": {
-        "bin-dir": "bin",
         "platform": {
             "php": "5.6"
         },
@@ -60,6 +59,9 @@
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
