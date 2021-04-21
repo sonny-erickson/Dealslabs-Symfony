@@ -96,7 +96,7 @@ class DealService
         $appDir = $this->kernel->getRootDir(); // C://USER/xampp/htdocs/PROJET/app/
         $webDir = $appDir . "/../web"; // C://USER/xampp/htdocs/PROJET/web
         $imgDir = Constantes::IMG_UPLOAD_DIRECTORY; // /uploads/image
-        $filename = $this->utilesService->slugify($deal->getTitre()) . "." . $imageFile->getClientOriginalExtension();
+        $filename = $deal->getPrixPromo() .$this->utilesService->slugify($deal->getTitre()) .$deal->getLocalisation() . "." . $imageFile->getClientOriginalExtension();
 
         try{
             $this->fileService->upload($webDir . "/" . $imgDir, $imageFile, $filename);
