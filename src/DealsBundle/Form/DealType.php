@@ -110,13 +110,13 @@ class DealType extends AbstractType
                 'multiple' => false
             ])
             ->add('image', FileType::class,['label'=>'Image(JPG)'])
-            ->add('isNational', ChoiceType::class, array(
-                "label" => "National/Local",
-                'choices' => array(
-                    true => 'National',
-                    false => 'Local',
-                )
-            ))
+    //            ->add('isNational', ChoiceType::class, array(
+    //                "label" => "National/Local",
+    //                'choices' => array(
+    //                    'National'=> true,
+    //                    'Local' => false,
+    //                )
+    //            ))
            ->add('counter', HiddenType::class, array(
                 'data' => 1,
             ))

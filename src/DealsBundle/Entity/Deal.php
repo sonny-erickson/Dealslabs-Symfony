@@ -78,12 +78,12 @@ class Deal
      */
     private $localisation;
 
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="isNational", type="boolean")
-     */
-    private $isNational;
+    //    /**
+    //     * @var boolean
+    //     *
+    //     * @ORM\Column(name="isNational", type="boolean")
+    //     */
+    //    private $isNational;
 
     /**
      * @var int
