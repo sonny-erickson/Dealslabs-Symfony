@@ -1,0 +1,10 @@
+
+services:
+  form.translate: '@DealsBundle\Form\DealType'
+  myDealabs.categorieService : '@DealsBundle\Services\CategorieService'
+  myDealabs.utilesService : '@DealsBundle\Services\UtilesService'
+  myDealabs.deleteService : '@DealsBundle\Services\DeleteService'
+  myDealabs.fileService : '@DealsBundle\Services\FileService'
+  myDealabs.dealService : '@DealsBundle\Services\DealService'
+  myDealabs.userService : '@DealsBundle\Services\UserService'
+  myDealabs.voteService : '@DealsBundle\Services\VoteService'
