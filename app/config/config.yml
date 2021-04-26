@@ -36,8 +36,8 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     globals:
-        categorieService: "@myDealabs.categorieService"
-        userService: "@myDealabs.userService"
+        categorieService: "@DealsBundle\\Services\\CategorieService"
+        userService: "@DealsBundle\\Services\\UserService"
     form_themes:
         - bootstrap_3_layout.html.twig
 

@@ -35,7 +35,11 @@ class DealService
      * @param FileService $fileService
      * @param VoteService $voteService
      */
-    public function __construct(KernelInterface $kernel, UtilesService $utilesService,EntityManagerInterface $em, FileService $fileService, VoteService $voteService)
+    public function __construct(KernelInterface $kernel,
+                                EntityManagerInterface $em,
+                                FileService $fileService,
+                                VoteService $voteService,
+                                UtilesService $utilesService)
     {
         $this->kernel = $kernel;
         $this->em = $em;

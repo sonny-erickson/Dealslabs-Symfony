@@ -1,7 +1,6 @@
 # Learn more about services, parameters and containers at
 # https://symfony.com/doc/current/service_container.html
-imports:
-    - { resource : legacy_aliases.yml }
+
 parameters:
     #parameter_name: value
 
@@ -35,14 +34,14 @@ services:
     DealsBundle\Services\UtilesService:
         arguments:
 
-    DealsBundle\Services\DeleteService:
-        arguments: ["@doctrine.orm.entity_manager"]
+#    DealsBundle\Services\DeleteService:
+#        arguments: ["@doctrine.orm.entity_manager"]
 
     DealsBundle\Services\FileService:
         arguments: ["@kernel"]
 
-    DealsBundle\Services\DealService:
-        arguments: ["@kernel","@myDealabs.utilesService","@doctrine.orm.entity_manager","@myDealabs.fileService","@myDealabs.voteService"]
+#    DealsBundle\Services\DealService:
+#        arguments: ["@kernel","@doctrine.orm.entity_manager"]
 
     DealsBundle\Services\UserService:
         arguments: []

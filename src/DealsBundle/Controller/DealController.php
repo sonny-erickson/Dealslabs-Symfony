@@ -7,6 +7,7 @@ use DealsBundle\Entity\Deal;
 use DealsBundle\Form\DealType;
 use DealsBundle\Form\SearchFindType;
 use DealsBundle\Services\DealService;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -87,7 +88,8 @@ class DealController extends Controller
      * @param Deal $deal
      * @return Response|null
      */
-    public function dealDetail(Request $request, Deal $deal)
+    public function dealDetail(Request $request,
+                               Deal $deal)
     {
         return new JsonResponse([
             "deal" => $deal,
@@ -102,7 +104,8 @@ class DealController extends Controller
      * @param Request $request
      * @return Response|null
      */
-    public function updateCounter(Request $request)
+    public function updateCounter(Request $request,
+                                  DealService $dealCounter)
     {
         /** @var TranslatorInterface $translator */
         $translator = $this->get("translator");
@@ -111,8 +114,6 @@ class DealController extends Controller
             throw new UnauthorizedException($translator->trans("deal.counter.unauthorized.user"), 500, "/");
         }
         try {
-            /** @var DealService $dealCounter */
-            $dealCounter = $this->get("myDealabs.dealService");
             //Call changeCounter service
             $deal = $dealCounter->createCounter($user, $request);
         }catch (\Exception $e){
@@ -127,7 +128,8 @@ class DealController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response|null
      */
-    public function addAction(Request $request)
+    public function addAction(Request $request,
+                              DealService $dealService)
     {
         /** @var TranslatorInterface $translator */
         $translator = $this->get("translator");
@@ -139,8 +141,8 @@ class DealController extends Controller
         if($form->isSubmitted() && $form->isValid()){
             $user=$this->getUser();
 
-            /** @var DealService $dealService */
-            $dealService = $this->get("myDealabs.dealService");
+           // /** @var DealService $dealService */
+           // $dealService = $this->get("myDealabs.dealService");
             try{
                 $dealService->addDeal($deal, $user);
                 $this->addFlash('success',$translator->trans("deal.add"));
@@ -162,12 +164,11 @@ class DealController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response|null
      */
-    public function profileAction(Request $request)
+    public function profileAction(Request $request,
+                                  EntityManagerInterface $em,
+                                  TranslatorInterface $translator)
     {
-        /** @var TranslatorInterface $translator */
-        $translator = $this->get("translator");
         try {
-            $em = $this->getDoctrine()->getManager();
             $deals = $em->getRepository(Deal::class)
                 ->findDealsByUser($this->getUser());
             return $this->render('DealsBundle:Default:profile.html.twig',[
@@ -185,13 +186,14 @@ class DealController extends Controller
      * @param Deal $deal
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function deleteDealAction(Request $request, Deal $deal)
+    public function deleteDealAction(Request $request,
+                                     Deal $deal,
+                                     DealService $dealService)
     {
         /** @var TranslatorInterface $translator */
         $translator = $this->get("translator");
         try {
-            /** @var DealService $dealService */
-            $dealService = $this->get("myDealabs.dealService");
+            ///** @var DealService $dealService */
             $dealService->deleteDeal($deal);
             $this->addFlash('success',$translator->trans("deal.delete.success"));
         }catch (\Exception $e){
