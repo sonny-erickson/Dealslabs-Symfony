@@ -25,10 +25,9 @@ class DealController extends Controller
      * @param Request $request
      * @return Response|null
      */
-    public function searchAction(Request $request)
+    public function searchAction(Request $request,
+                                 TranslatorInterface $translator)
     {
-        /** @var TranslatorInterface $translator */
-        $translator = $this->get("translator");
         try {
             $typeSearch = $request->get("typeSearch");
             $formSearch = $this->createForm(SearchFindType::class, [
@@ -60,10 +59,9 @@ class DealController extends Controller
      * @param Request $request
      * @return Response|null
      */
-    public function scrollDeals(Request $request)
+    public function scrollDeals(Request $request,
+                                TranslatorInterface $translator)
     {
-        /** @var TranslatorInterface $translator */
-        $translator = $this->get("translator");
         $position = $request->request->get('position');
         try {
             $deals = $this->getDoctrine()->getManager()->getRepository(Deal::class)
@@ -105,10 +103,9 @@ class DealController extends Controller
      * @return Response|null
      */
     public function updateCounter(Request $request,
-                                  DealService $dealCounter)
+                                  DealService $dealCounter,
+                                  TranslatorInterface $translator)
     {
-        /** @var TranslatorInterface $translator */
-        $translator = $this->get("translator");
         $user = $this->getUser();
         if(empty($user)){
             throw new UnauthorizedException($translator->trans("deal.counter.unauthorized.user"), 500, "/");
@@ -129,10 +126,9 @@ class DealController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response|null
      */
     public function addAction(Request $request,
-                              DealService $dealService)
+                              DealService $dealService,
+                              TranslatorInterface $translator)
     {
-        /** @var TranslatorInterface $translator */
-        $translator = $this->get("translator");
         $deal = new Deal();
         $form = $this->createForm(DealType::class, $deal,  [
             'translator' => $this->get("translator")
@@ -140,9 +136,6 @@ class DealController extends Controller
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $user=$this->getUser();
-
-           // /** @var DealService $dealService */
-           // $dealService = $this->get("myDealabs.dealService");
             try{
                 $dealService->addDeal($deal, $user);
                 $this->addFlash('success',$translator->trans("deal.add"));
@@ -188,12 +181,10 @@ class DealController extends Controller
      */
     public function deleteDealAction(Request $request,
                                      Deal $deal,
-                                     DealService $dealService)
+                                     DealService $dealService,
+                                     TranslatorInterface $translator)
     {
-        /** @var TranslatorInterface $translator */
-        $translator = $this->get("translator");
         try {
-            ///** @var DealService $dealService */
             $dealService->deleteDeal($deal);
             $this->addFlash('success',$translator->trans("deal.delete.success"));
         }catch (\Exception $e){
