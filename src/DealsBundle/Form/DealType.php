@@ -36,7 +36,7 @@ class DealType extends AbstractType
 //        $translator = $options['translator'];
         $builder
             ->add('url', UrlType::class, [
-                "label" => $this->translator->trans("deal.form.label.url"),
+                "label" => $this->translator->trans("global.deal.link.btn"),
                 "required" => true,
                 "attr" => [
                     "class" => "well",

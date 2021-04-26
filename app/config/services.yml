@@ -22,31 +22,31 @@ services:
         resource: '../../src/DealsBundle/Controller'
         public: true
         tags: [ 'controller.service_arguments' ]
-
-    DealsBundle\Form\DealType:
-        arguments: [ "@translator" ]
-        tags:
-            - { name: form.type }
-
-    DealsBundle\Services\CategorieService:
-        arguments: ["@doctrine.orm.entity_manager"]
-
-    DealsBundle\Services\UtilesService:
-        arguments:
+########## Possible de supprimer désormais les services ici  (on peut les appelés de partout)#########
+#    DealsBundle\Form\DealType:
+#        arguments: [ "@translator" ]
+#        tags:
+#            - { name: form.type }
+#
+#    DealsBundle\Services\CategorieService:
+#        arguments: ["@doctrine.orm.entity_manager"]
+#
+#    DealsBundle\Services\UtilesService:
+#        arguments:
 
 #    DealsBundle\Services\DeleteService:
 #        arguments: ["@doctrine.orm.entity_manager"]
 
-    DealsBundle\Services\FileService:
-        arguments: ["@kernel"]
+#    DealsBundle\Services\FileService:
+#        arguments: ["@kernel"]
 
 #    DealsBundle\Services\DealService:
 #        arguments: ["@kernel","@doctrine.orm.entity_manager"]
 
-    DealsBundle\Services\UserService:
-        arguments: []
+#    DealsBundle\Services\UserService:
+#        arguments: []
 
-    DealsBundle\Services\VoteService:
-        arguments: ["@doctrine.orm.entity_manager"]
+#    DealsBundle\Services\VoteService:
+#        arguments: ["@doctrine.orm.entity_manager"]
 
 

@@ -107,10 +107,6 @@
                 <target>Recherche</target>
             </trans-unit>
         <!--             Form-deal-add              -->
-            <trans-unit id="deal.form.label.url">
-                <source>deal.form.label.url</source>
-                <target>Lien du deal</target>
-            </trans-unit>
             <trans-unit id="deal.form.placeholderUrl">
                 <source>deal.form.placeholderUrl</source>
                 <target>http:/www.example.com/superdeal</target>
